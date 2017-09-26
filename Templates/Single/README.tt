@@ -1,0 +1,106 @@
+﻿<#@ template language="C#" #>
+<#@ output extension=".md" #>
+<#@ assembly name="C:\Users\HP_User\Source\Repos\discoverysamplebuilder\Src\GoogleSampleBuilder\packages\Google.Apis.1.27.1\lib\net45\Google.Apis.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="GoogleSampleBuilder.Core.Util" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Google.Apis.Discovery.v1.Data" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ parameter name="APIResponse" type="Google.Apis.Discovery.v1.Data.RestDescription" #>
+![<#= APIResponse.Title #>](<#= APIResponse.Icons.X32 #>)
+<# var CleanName = ((APIResponse.CanonicalName != null) ? APIResponse.CanonicalName : APIResponse.Name).Replace(" ",string.Empty); #>
+
+# UnOfficial <#= APIResponse.Title #> <#= APIResponse.Version #> Samples for Java
+
+## API Description
+
+<#= APIResponse.Description #>
+
+[Official Documentation](<#= APIResponse.DocumentationLink #>)
+
+## Sample Description
+
+These samples show how to access the [<#= APIResponse.Title #> <#= APIResponse.Version #>](<#= APIResponse.DocumentationLink #>) with the Official [Google Java client library](https://github.com/google/google-api-java-client)
+
+Tutorials to go along with some of these samples can be found on [www.daimto.com](http://www.daimto.com/)
+
+## Developer Documentation
+
+* [Developer's Guide](https://developers.google.com/api-client-library/java/google-api-java-client/dev-guide)
+* [Supported APIs](https://developers.google.com/api-client-library/java/apis/)
+
+### Installing client library with Composer
+
+see [Setup Instructions](https://developers.google.com/api-client-library/java/google-api-java-client/setup)
+
+## Authentication 
+
+### Oauth2
+
+#### Create credentials
+
+Open the Credentials page.
+
+* Click [Create credentials](https://console.developers.google.com/apis/credentials) and select OAuth client ID
+* For the Application type select Web application.
+* Name the client ID PHPSample and click Create.
+* Leave the Authorized JavaScript origins blank, it is not needed for this tutorial.
+* Set the Authorized redirect URIs to http://localhost:8080/oauth2callback.php  [FIX THIS]
+* Click Create.
+From the [Credentials](https://console.developers.google.com/apis/credentials) page click into the newly created client ID, and click Download JSON and save it as client_secrets.json; you will need it later.
+
+#### Add scopes
+
+Edit Oauth2Authentication and add the scopes you will be using
+
+#### Usage
+
+Include the folliwing in your script
+
+```
+[Add example]
+```
+
+### Service account
+
+#### Create credentials
+
+Note: not all APIs support service accounts.
+
+* Open the [Service accounts](https://console.developers.google.com/permissions/serviceaccounts) page. If prompted, select a project.
+* Click Create service account.
+* Download the json file name it service-account.json; you will need it later
+* In the Create service account window, type a name for the service account, and select Furnish a new private key. If you want to [grant G Suite domain-wide authority](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#delegatingauthority) to the service account, also select Enable G Suite Domain-wide Delegation. Then click Create.
+* place service-account.json in the directory along with your code.
+
+#### Add scopes
+
+Edit XXX and add the scopes you will be using
+
+#### Usage
+
+Include the following line in your script to include service account authencation code.
+
+```
+[Add example]
+```
+
+### Public API Key
+
+Note: Public API keys can only be used to access public data.
+
+
+#### Usage
+
+Include the following line in your script to include service account authencation code.
+
+```
+[Add Example]
+```
+
+
+
+
+
